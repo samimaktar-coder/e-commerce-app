@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function CartItem({ item }) {
   const [productCount, setProductCount] = useState(item.quantity);
-  const options = useOptions(15);
+  const options = useOptions(item.quantity + 5);
   const dispatch = useDispatch();
   return (
     <div

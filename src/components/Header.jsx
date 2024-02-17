@@ -9,6 +9,7 @@ function Header() {
   const isLogin = useSelector((state) => state.login.value);
   const totalCartItems = useSelector((state) => state.cart.numItemsInCart);
   const dispatch = useDispatch();
+  const cartData = useSelector((state) => state.cart);
 
   return (
     <div className='fixed top-0 left-0 w-full z-50'>
@@ -57,11 +58,23 @@ function Header() {
             >
               <PiShoppingCartBold />
               {totalCartItems !== 0 && (
-                <span className='bg-pink-600 absolute top-0 -right-2 text-[.7rem] h-4 w-6 flex items-center justify-center rounded-full font-semibold'>
-                  {totalCartItems}
-                </span>
+                <div>
+                  <span className='bg-pink-600 absolute top-0 -right-2 text-[.7rem] h-4 w-6 flex items-center justify-center rounded-full font-semibold'>
+                    {totalCartItems}
+                  </span>
+                </div>
               )}
             </NavLink>
+            {totalCartItems !== 0 && (
+              <h2 className='text-sm flex flex-col items-center px-3'>
+                <span>Total Price: </span>
+                <span className='text-xs'>
+                  ${" "}
+                  {cartData.totalPrice +
+                    Number((cartData.cartTotal * 0.06).toFixed(2))}
+                </span>
+              </h2>
+            )}
             <NavLink className=' px-4 py-1 rounded-md'>
               <img src={userData.image} alt='' className='w-8 rounded-full' />
             </NavLink>
