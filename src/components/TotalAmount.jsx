@@ -7,7 +7,6 @@ function TotalAmount() {
   const cartData = useSelector((state) => state.cart);
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.cartItems);
 
   return (
     <>
@@ -48,7 +47,7 @@ function TotalAmount() {
       {showModal && (
         <div className='fixed top-0 left-0 w-full h-screen bg-black/25 backdrop-blur-sm  p-10 rounded-xl text-center'>
           <div className='relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 w-3/4 p-10 rounded-xl text-center'>
-            {cartItems.length ? (
+            {cartData.cartItems.length ? (
               <div>
                 <h1 className='text-3xl mb-3 font-semibold'>
                   Congratulations! Your order has been successfully placed! 🎉
