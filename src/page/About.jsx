@@ -6,7 +6,7 @@ function About() {
   useIsLogin();
 
   return (
-    <div className='text-center py-10 w-3/5 mx-auto'>
+    <div className='text-center py-10 w-3/5 mx-auto max-md:w-[90%]'>
       <h1 className='text-4xl fonbo mb-5'>
         WE LOVE <span className='text-teal-500'>MEGA</span>STORE
       </h1>

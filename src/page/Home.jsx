@@ -29,7 +29,7 @@ function Home() {
             filteredProducts={filteredProducts}
             setFilteredProducts={setFilteredProducts}
           />
-          <div className='grid grid-cols-3 gap-6 px-12 py-5'>
+          <div className='grid grid-cols-3 gap-6 max-sm:gap-8 px-12 py-5 max-xl:grid-cols-2 max-sm:grid-cols-1'>
             {filteredProducts.map((product) => (
               <Link
                 to={`/product/${product.id}`}

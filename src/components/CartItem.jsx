@@ -11,7 +11,7 @@ function CartItem({ item }) {
   return (
     <div
       key={item.id}
-      className='border-2 border-transparent border-b-black grid grid-cols-6 gap-x-5 px-3 py-5'
+      className='border-2 border-transparent border-b-black grid grid-cols-6 gap-5 px-3 py-5 max-lg:grid-cols-4 max-sm:grid-cols-2'
     >
       <Link
         to={`/product/${item.id}`}
@@ -19,7 +19,7 @@ function CartItem({ item }) {
       >
         <img src={item.thumbnail} alt='' className='min-h-full min-w-full' />
       </Link>
-      <div className='col-span-2'>
+      <div className='col-span-2 max-sm:col-span-1'>
         <h3 className='font-semibold'>{item.title}</h3>
         <h3 className='flex items-center gap-x-2 text-sm'>
           <span>{item.brand}</span>
@@ -27,7 +27,7 @@ function CartItem({ item }) {
           <span>{item.category}</span>
         </h3>
       </div>
-      <div>
+      <div className='flex flex-col items-start'>
         <h2>Quantity:</h2>
         <select
           value={productCount}

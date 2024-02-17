@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { PiShoppingCartBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../store/loginSlice";
+import { IoMenu } from "react-icons/io5";
 
 function Header() {
   const userData = useSelector((state) => state.user.data);
@@ -10,6 +11,7 @@ function Header() {
   const totalCartItems = useSelector((state) => state.cart.numItemsInCart);
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.cart);
+  const [showMenu, setShowMenu] = useState(true);
 
   return (
     <div className='fixed top-0 left-0 w-full z-50'>
@@ -31,7 +33,11 @@ function Header() {
           M
         </Link>
         {isLogin && (
-          <ul className='flex gap-x-3 items-center'>
+          <ul
+            className={`flex gap-x-3 items-center max-md:absolute max-md:right-14 max-md:top-24 max-md:w-1/3 max-md:bg-gray-700 max-md:gap-y-5 max-md:flex-col max-md:p-5 max-md:rounded-lg ${
+              showMenu ? "max-md:flex" : "max-md:hidden"
+            }`}
+          >
             <NavLink
               to='/'
               className={({ isActive }) =>
@@ -79,6 +85,12 @@ function Header() {
               <img src={userData.image} alt='' className='w-8 rounded-full' />
             </NavLink>
           </ul>
+        )}
+        {isLogin && (
+          <IoMenu
+            className='max-md:block hidden text-3xl'
+            onClick={() => setShowMenu((prev) => !prev)}
+          />
         )}
       </div>
     </div>

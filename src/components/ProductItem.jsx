@@ -34,7 +34,7 @@ function ProductItem() {
           Home
           <IoIosArrowForward />
         </Link>
-        <div className='grid grid-cols-2 gap-x-8'>
+        <div className='grid grid-cols-2 gap-8 max-lg:grid-cols-1'>
           <div>
             <div className='min-w-full max-h-[32rem] overflow-hidden flex items-center justify-center mb-5 rounded-2xl'>
               <img
@@ -44,12 +44,12 @@ function ProductItem() {
               />
             </div>
             <div
-              className={`grid grid-cols-3 items-center justify-between gap-3`}
+              className={`grid grid-cols-3 max-md:grid-cols-2 items-center justify-between gap-3`}
             >
               {product.images.map((image, index) => (
                 <div
                   key={index}
-                  className='overflow-hidden cursor-pointer min-w-40 max-h-32 flex items-center justify-center rounded-lg'
+                  className='overflow-hidden cursor-pointer min-w-40 max-h-32 max-md:min-w-32 max-md:min-h-24 flex items-center justify-center rounded-lg'
                 >
                   <img
                     src={image}

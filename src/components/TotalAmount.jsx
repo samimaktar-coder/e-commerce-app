@@ -9,7 +9,7 @@ function TotalAmount() {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div className='max-xl:w-1/2 mx-auto max-lg:w-3/4 max-sm:w-full'>
       <div className='bg-black/25 p-8 rounded-xl'>
         <div className='flex items-center justify-between border border-transparent border-b-black py-2'>
           <h2 className='text-sm font-semibold'>Subtotal</h2>
@@ -75,7 +75,7 @@ function TotalAmount() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

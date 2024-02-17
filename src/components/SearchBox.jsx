@@ -52,7 +52,7 @@ function SearchBox({ products, setFilteredProducts }) {
 
   return (
     <div className='bg-[#15161e] mx-12 p-5 rounded-lg mt-10 mb-5'>
-      <div className=' grid items-center grid-cols-3 gap-10'>
+      <div className='grid items-center grid-cols-3 gap-10 max-md:grid-cols-1'>
         <div>
           <p className='mb-1'>Search Product:</p>
           <input

@@ -63,7 +63,7 @@ function Login() {
   return (
     <div>
       <form
-        className='mx-auto bg-gray-700 shadow-md w-1/3 p-5 rounded-lg'
+        className='mx-auto max-xl:w-1/2 max-sm:w-[90%] bg-gray-700 shadow-md w-1/3 p-5 rounded-lg'
         onSubmit={handleSubmit}
       >
         <h1 className='text-center text-4xl font-semibold mb-5'>Log In</h1>
