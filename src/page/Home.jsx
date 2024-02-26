@@ -45,7 +45,16 @@ function Home() {
                 </div>
                 <div className='flex items-center justify-between my-3 gap-x-10'>
                   <h2 className='text-lg font-semibold'>{product.title}</h2>
-                  <h3 className='font-semibold'>${product.price}</h3>
+                  <div className='flex items-center gap-x-2 font-semibold'>
+                    <h3 className='text-lg line-through text-gray-400'>
+                      $
+                      {(
+                        (product.price * 100) /
+                        (100 - Number(Math.round(product.discountPercentage)))
+                      ).toFixed(0)}
+                    </h3>
+                    <h3 className='text-lg'>${product.price}</h3>
+                  </div>
                 </div>
                 <div className='flex items-center gap-x-2 mb-3'>
                   <IoStar className='text-yellow-500 text-xl' />
@@ -58,7 +67,7 @@ function Home() {
                   />
                   <h3 className='text-sm'>
                     <span className='text-yellow-500 font-semibold text-lg mr-1'>
-                      {product.discountPercentage} %
+                      {Math.round(product.discountPercentage)}%
                     </span>
                     OFF
                   </h3>

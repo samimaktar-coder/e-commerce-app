@@ -63,14 +63,20 @@ function ProductItem() {
           <div className='mt-10'>
             <h1 className='text-4xl font-semibold'>{product.title}</h1>
             <h3 className='text-lg my-3'>{product.brand}</h3>
-            <h3 className='text-lg'>${product.price}</h3>
-            <p className='my-4'>{product.description}</p>
-            <h3>
-              Discount:
-              <span className='text-xl text-yellow-500 ml-2'>
-                {product.discountPercentage}%
+            <div className='flex items-center gap-x-2 font-semibold'>
+              <h3 className='text-lg line-through text-gray-400'>
+                $
+                {(
+                  (product.price * 100) /
+                  (100 - Number(Math.round(product.discountPercentage)))
+                ).toFixed(0)}
+              </h3>
+              <h3 className='text-lg'>${product.price}</h3>
+              <span className='text-sm bg-yellow-500 text-black px-2 py-1 rounded-md'>
+                {Math.round(product.discountPercentage)}% OFF
               </span>
-            </h3>
+            </div>
+            <p className='my-4'>{product.description}</p>
             <div className='mt-5 mb-10'>
               <h2 className='mb-2'>Quantity:</h2>
               <select
